@@ -21,3 +21,17 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+# Android Studio Things
+.gradle
+.idea
+
+# Xcode Things
+native/KotliniOS/KotliniOS.xcodeproj/project.xcworkspace/xcuserdata
+native/KotliniOS/KotliniOS.xcodeproj/xcuserdata
+
+# Build Artifacts for shared code
+SharedCode/build/kotlin
+SharedCode/build/classes
+SharedCode/build/bin
+SharedCode/build/tmp
