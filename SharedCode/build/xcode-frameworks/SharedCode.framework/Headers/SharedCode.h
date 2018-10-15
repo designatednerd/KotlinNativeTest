@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 
-@class SharedCodeDayOfWeek, SharedCodeKotlinEnum, SharedCodeDayOfWeekCompanion, SharedCodeKotlinArray, SharedCodeHourType, SharedCodeHours, SharedCodeHoursOfOperation, SharedCodeHoursOfOperationAlways, SharedCodeHoursOfOperationWeekdays, SharedCodeHoursOfOperationWeekends, SharedCodeHoursOfOperationVariable;
+@class SharedCodeColor, SharedCodeKotlinEnum, SharedCodeDayOfWeek, SharedCodeDayOfWeekCompanion, SharedCodeKotlinArray, SharedCodeHourType, SharedCodeHours, SharedCodeHoursOfOperation, SharedCodeHoursOfOperationAlways, SharedCodeHoursOfOperationWeekdays, SharedCodeHoursOfOperationWeekends, SharedCodeHoursOfOperationVariable, UIColor;
 
 @protocol SharedCodeKotlinComparable, SharedCodeKotlinIterator;
 
@@ -156,6 +156,27 @@ __attribute__((swift_name("KotlinEnum")))
 @end;
 
 __attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("Color")))
+@interface SharedCodeColor : SharedCodeKotlinEnum
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
+@property (class, readonly) SharedCodeColor *red;
+@property (class, readonly) SharedCodeColor *yellow;
+@property (class, readonly) SharedCodeColor *green;
+@property (class, readonly) SharedCodeColor *blue;
+@property (class, readonly) SharedCodeColor *fuchsia;
+@property (class, readonly) SharedCodeColor *black;
+@property (class, readonly) SharedCodeColor *gray;
+- (instancetype)initWithName:(NSString *)name ordinal:(int32_t)ordinal __attribute__((swift_name("init(name:ordinal:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
+- (int32_t)compareToOther:(SharedCodeColor *)other __attribute__((swift_name("compareTo(other:)")));
+@property (readonly) double alphaComponent;
+@property (readonly) double redComponent;
+@property (readonly) double greenComponent;
+@property (readonly) double blueComponent;
+@property (readonly) NSString *hexString;
+@end;
+
+__attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("DayOfWeek")))
 @interface SharedCodeDayOfWeek : SharedCodeKotlinEnum
 + (instancetype)alloc __attribute__((unavailable));
@@ -240,6 +261,10 @@ __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("HoursOfOperation.Variable")))
 @interface SharedCodeHoursOfOperationVariable : SharedCodeHoursOfOperation
 - (instancetype)initWithHours:(NSArray<SharedCodeHours *> *)hours __attribute__((swift_name("init(hours:)"))) __attribute__((objc_designated_initializer));
+@end;
+
+@interface SharedCodeColor (Extensions)
+- (UIColor *)toUIColor __attribute__((swift_name("toUIColor()")));
 @end;
 
 __attribute__((objc_subclassing_restricted))

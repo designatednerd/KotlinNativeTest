@@ -3,6 +3,7 @@ package no.bakkenbaeck.kotlinnativetest
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
+import no.bakkenbaeck.mpp.mobile.Color
 import no.bakkenbaeck.mpp.mobile.DayOfWeek
 import no.bakkenbaeck.mpp.mobile.HoursOfOperation
 import no.bakkenbaeck.mpp.mobile.createApplicationScreenMessage
@@ -13,7 +14,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        findViewById<TextView>(R.id.main_text).text = createApplicationScreenMessage()
+        findViewById<TextView>(R.id.main_text).apply {
+            text = createApplicationScreenMessage()
+            setTextColor(Color.Red.toAndroidColor())
+        }
 
 
         val hours = HoursOfOperation.Weekdays(10.0f, 25f)

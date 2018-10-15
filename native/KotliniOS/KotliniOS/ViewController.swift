@@ -22,12 +22,13 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         self.helloLabel.text = CommonKt.createApplicationScreenMessage()
+        let color = Color.gray.toUIColor()
+        self.helloLabel.textColor = color
         
         let hours = HoursOfOperation.Weekdays(fromHour: 8.0, toHour: 20.0)
         configureStacks(for: hours)
         
         self.isOpenLabel.text = hours.isOpenText(onDay: .saturday, atHour: 23.5)
-        
     }
     
     func configureStacks(for hours: HoursOfOperation) {

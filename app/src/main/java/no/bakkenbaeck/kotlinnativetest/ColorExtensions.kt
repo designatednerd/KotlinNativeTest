@@ -1,5 +1,8 @@
-package no.bakkenbaeck.mpp.mobile
+package no.bakkenbaeck.kotlinnativetest
 
-fun Color.toAndroidColor(): Color {
+import android.support.annotation.ColorInt
 
+@ColorInt
+fun no.bakkenbaeck.mpp.mobile.Color.toAndroidColor(): Int {
+    return android.graphics.Color.parseColor("#$hexString")
 }
