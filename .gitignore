@@ -25,6 +25,7 @@ hs_err_pid*
 # Android Studio Things
 .gradle
 .idea
+*.iml
 
 # Xcode Things
 native/KotliniOS/KotliniOS.xcodeproj/project.xcworkspace/xcuserdata
