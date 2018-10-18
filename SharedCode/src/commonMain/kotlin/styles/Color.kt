@@ -1,5 +1,6 @@
 package no.bakkenbaeck.mpp.mobile
 
+// Some useful colors:  https://htmlcolorcodes.com/
 enum class Color(val hexString: String) {
     Red("FF0000"),
     Yellow("FFFF00"),
@@ -7,7 +8,9 @@ enum class Color(val hexString: String) {
     Blue("0000FF"),
     Fuchsia("FF00FF"),
     Black("000000"),
-    Gray("808080");
+    DarkGray("808080"),
+    LightGray("C0C0C0"),
+    White("000000");
 
     val alphaComponent: Double
         get() = if (hexString.length != 8) {
