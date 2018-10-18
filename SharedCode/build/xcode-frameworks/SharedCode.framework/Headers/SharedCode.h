@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 
-@class SharedCodeColor, SharedCodeKotlinEnum, SharedCodeDayOfWeek, SharedCodeDayOfWeekCompanion, SharedCodeKotlinArray, SharedCodeHourType, SharedCodeHours, SharedCodeHoursOfOperation, SharedCodeHoursOfOperationAlways, SharedCodeHoursOfOperationWeekdays, SharedCodeHoursOfOperationWeekends, SharedCodeHoursOfOperationVariable, UIColor;
+@class SharedCodeDayOfWeek, SharedCodeKotlinEnum, SharedCodeDayOfWeekCompanion, SharedCodeKotlinArray, SharedCodeHourType, SharedCodeHours, SharedCodeHoursOfOperation, SharedCodeHoursOfOperationAlways, SharedCodeHoursOfOperationWeekdays, SharedCodeHoursOfOperationWeekends, SharedCodeHoursOfOperationVariable, SharedCodeColor, SharedCodeFont, SharedCodeFontSize, SharedCodeButtonStyle, SharedCodeButtonStyleCallToAction, SharedCodeEditableTextStyle, SharedCodeEditableTextStyleRequiredEditableText, SharedCodeEditableTextStyleOptionalEditableText, SharedCodeStaticTextStyle, SharedCodeStaticTextStyleHeadline, SharedCodeStaticTextStyleHeadlineSecondary, SharedCodeStaticTextStyleTextPrimary, SharedCodeStaticTextStyleTextSecondary, SharedCodeStaticTextStyleTextCaption, SharedCodeStaticTextStyleTextIconLabel, UIColor, UIFont;
 
 @protocol SharedCodeKotlinComparable, SharedCodeKotlinIterator;
 
@@ -156,27 +156,6 @@ __attribute__((swift_name("KotlinEnum")))
 @end;
 
 __attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("Color")))
-@interface SharedCodeColor : SharedCodeKotlinEnum
-+ (instancetype)alloc __attribute__((unavailable));
-+ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
-@property (class, readonly) SharedCodeColor *red;
-@property (class, readonly) SharedCodeColor *yellow;
-@property (class, readonly) SharedCodeColor *green;
-@property (class, readonly) SharedCodeColor *blue;
-@property (class, readonly) SharedCodeColor *fuchsia;
-@property (class, readonly) SharedCodeColor *black;
-@property (class, readonly) SharedCodeColor *gray;
-- (instancetype)initWithName:(NSString *)name ordinal:(int32_t)ordinal __attribute__((swift_name("init(name:ordinal:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
-- (int32_t)compareToOther:(SharedCodeColor *)other __attribute__((swift_name("compareTo(other:)")));
-@property (readonly) double alphaComponent;
-@property (readonly) double redComponent;
-@property (readonly) double greenComponent;
-@property (readonly) double blueComponent;
-@property (readonly) NSString *hexString;
-@end;
-
-__attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("DayOfWeek")))
 @interface SharedCodeDayOfWeek : SharedCodeKotlinEnum
 + (instancetype)alloc __attribute__((unavailable));
@@ -263,8 +242,158 @@ __attribute__((swift_name("HoursOfOperation.Variable")))
 - (instancetype)initWithHours:(NSArray<SharedCodeHours *> *)hours __attribute__((swift_name("init(hours:)"))) __attribute__((objc_designated_initializer));
 @end;
 
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("Color")))
+@interface SharedCodeColor : SharedCodeKotlinEnum
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
+@property (class, readonly) SharedCodeColor *red;
+@property (class, readonly) SharedCodeColor *yellow;
+@property (class, readonly) SharedCodeColor *green;
+@property (class, readonly) SharedCodeColor *blue;
+@property (class, readonly) SharedCodeColor *fuchsia;
+@property (class, readonly) SharedCodeColor *black;
+@property (class, readonly) SharedCodeColor *darkgray;
+@property (class, readonly) SharedCodeColor *lightgray;
+@property (class, readonly) SharedCodeColor *white;
+- (instancetype)initWithName:(NSString *)name ordinal:(int32_t)ordinal __attribute__((swift_name("init(name:ordinal:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
+- (int32_t)compareToOther:(SharedCodeColor *)other __attribute__((swift_name("compareTo(other:)")));
+@property (readonly) double alphaComponent;
+@property (readonly) double redComponent;
+@property (readonly) double greenComponent;
+@property (readonly) double blueComponent;
+@property (readonly) NSString *hexString;
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("Font")))
+@interface SharedCodeFont : SharedCodeKotlinEnum
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
+@property (class, readonly) SharedCodeFont *regular;
+@property (class, readonly) SharedCodeFont *bold;
+@property (class, readonly) SharedCodeFont *italic;
+@property (class, readonly) SharedCodeFont *fancy;
+- (instancetype)initWithName:(NSString *)name ordinal:(int32_t)ordinal __attribute__((swift_name("init(name:ordinal:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
+- (int32_t)compareToOther:(SharedCodeFont *)other __attribute__((swift_name("compareTo(other:)")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("FontSize")))
+@interface SharedCodeFontSize : SharedCodeKotlinEnum
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
+@property (class, readonly) SharedCodeFontSize *textprimary;
+@property (class, readonly) SharedCodeFontSize *textsecondary;
+@property (class, readonly) SharedCodeFontSize *texticonlabel;
+@property (class, readonly) SharedCodeFontSize *textcaption;
+@property (class, readonly) SharedCodeFontSize *headlineprimary;
+@property (class, readonly) SharedCodeFontSize *headlinesecondary;
+- (instancetype)initWithName:(NSString *)name ordinal:(int32_t)ordinal __attribute__((swift_name("init(name:ordinal:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
+- (int32_t)compareToOther:(SharedCodeFontSize *)other __attribute__((swift_name("compareTo(other:)")));
+@property (readonly) double unscaledPixels;
+@end;
+
+__attribute__((swift_name("ButtonStyle")))
+@interface SharedCodeButtonStyle : KotlinBase
+@property (readonly) SharedCodeColor *textColorActive;
+@property (readonly) SharedCodeColor *textColorDisabled;
+@property (readonly) SharedCodeColor *textColorInactive;
+@property (readonly) SharedCodeColor *backgroundColorActive;
+@property (readonly) SharedCodeColor *backgroundColorDisabled;
+@property (readonly) SharedCodeColor *backgroundColorInactive;
+@property (readonly) SharedCodeFont *font;
+@property (readonly) SharedCodeFontSize *fontSize;
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("ButtonStyle.CallToAction")))
+@interface SharedCodeButtonStyleCallToAction : SharedCodeButtonStyle
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+@end;
+
+__attribute__((swift_name("EditableTextStyle")))
+@interface SharedCodeEditableTextStyle : KotlinBase
+@property (readonly) SharedCodeColor *textColor;
+@property (readonly) SharedCodeColor *activeHighlightColor;
+@property (readonly) SharedCodeColor *inactiveHighlightColor;
+@property (readonly) SharedCodeColor *placeholderColor;
+@property (readonly) SharedCodeColor *errorColor;
+@property (readonly) SharedCodeFont *font;
+@property (readonly) SharedCodeFontSize *fontSize;
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("EditableTextStyle.RequiredEditableText")))
+@interface SharedCodeEditableTextStyleRequiredEditableText : SharedCodeEditableTextStyle
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("EditableTextStyle.OptionalEditableText")))
+@interface SharedCodeEditableTextStyleOptionalEditableText : SharedCodeEditableTextStyle
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+@end;
+
+__attribute__((swift_name("StaticTextStyle")))
+@interface SharedCodeStaticTextStyle : KotlinBase
+@property (readonly) SharedCodeFont *font;
+@property (readonly) SharedCodeFontSize *fontSize;
+@property (readonly) SharedCodeColor *textColor;
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("StaticTextStyle.Headline")))
+@interface SharedCodeStaticTextStyleHeadline : SharedCodeStaticTextStyle
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("StaticTextStyle.HeadlineSecondary")))
+@interface SharedCodeStaticTextStyleHeadlineSecondary : SharedCodeStaticTextStyle
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("StaticTextStyle.TextPrimary")))
+@interface SharedCodeStaticTextStyleTextPrimary : SharedCodeStaticTextStyle
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("StaticTextStyle.TextSecondary")))
+@interface SharedCodeStaticTextStyleTextSecondary : SharedCodeStaticTextStyle
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("StaticTextStyle.TextCaption")))
+@interface SharedCodeStaticTextStyleTextCaption : SharedCodeStaticTextStyle
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("StaticTextStyle.TextIconLabel")))
+@interface SharedCodeStaticTextStyleTextIconLabel : SharedCodeStaticTextStyle
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+@end;
+
 @interface SharedCodeColor (Extensions)
 - (UIColor *)toUIColor __attribute__((swift_name("toUIColor()")));
+@end;
+
+@interface SharedCodeFont (Extensions)
+- (UIFont *)toUIFontSize:(double)size __attribute__((swift_name("toUIFont(size:)")));
+- (UIFont *)toUIFontSize_:(SharedCodeFontSize *)size __attribute__((swift_name("toUIFont(size_:)")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
