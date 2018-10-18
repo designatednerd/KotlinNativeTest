@@ -1,4 +1,0 @@
-#!/bin/bash
-export 'JAVA_HOME=/Applications/Android Studio.app/Contents/jre/jdk/Contents/Home/jre'
-cd '/Users/ellen/Dropbox/portal/talks/trySwiftKotlin/CodeSample'
-./gradlew $@
