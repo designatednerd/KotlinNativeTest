@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 
-@class SharedCodeDayOfWeek, SharedCodeKotlinEnum, SharedCodeDayOfWeekCompanion, SharedCodeKotlinArray, SharedCodeHourType, SharedCodeHours, SharedCodeHoursOfOperation, SharedCodeHoursOfOperationAlways, SharedCodeHoursOfOperationWeekdays, SharedCodeHoursOfOperationWeekends, SharedCodeHoursOfOperationVariable, SharedCodeColor, SharedCodeFont, SharedCodeFontSize, SharedCodeButtonStyle, SharedCodeButtonStyleCallToAction, SharedCodeEditableTextStyle, SharedCodeEditableTextStyleRequiredEditableText, SharedCodeEditableTextStyleOptionalEditableText, SharedCodeStaticTextStyle, SharedCodeStaticTextStyleHeadline, SharedCodeStaticTextStyleHeadlineSecondary, SharedCodeStaticTextStyleTextPrimary, SharedCodeStaticTextStyleTextSecondary, SharedCodeStaticTextStyleTextCaption, SharedCodeStaticTextStyleTextIconLabel, UIColor, UIFont;
+@class SharedCodeDayOfWeek, SharedCodeKotlinEnum, SharedCodeDayOfWeekCompanion, SharedCodeKotlinArray, SharedCodeHourType, SharedCodeHours, SharedCodeHoursOfOperation, SharedCodeHoursOfOperationAlways, SharedCodeHoursOfOperationWeekdays, SharedCodeHoursOfOperationWeekends, SharedCodeHoursOfOperationVariable, SharedCodeColor, SharedCodeFont, SharedCodeFontSize, SharedCodeButtonStyle, SharedCodeCornerRadius, SharedCodeDimension, SharedCodeButtonStyleCallToAction, SharedCodeButtonStyleDestructive, SharedCodeEditableTextStyle, SharedCodeEditableTextStyleRequiredEditableText, SharedCodeEditableTextStyleOptionalEditableText, SharedCodeSize, SharedCodeCornerRadiusNone, SharedCodeCornerRadiusSmall, SharedCodeCornerRadiusMedium, SharedCodeCornerRadiusLarge, SharedCodeDimensionButtonHeight, SharedCodeMargin, SharedCodeMarginCompanion, SharedCodeMarginX1, SharedCodeMarginX1_5, SharedCodeMarginX2, SharedCodeStaticTextStyle, SharedCodeStaticTextStyleHeadline, SharedCodeStaticTextStyleHeadlineSecondary, SharedCodeStaticTextStyleTextPrimary, SharedCodeStaticTextStyleTextSecondary, SharedCodeStaticTextStyleTextCaption, SharedCodeStaticTextStyleTextIconLabel, UIColor, UIFont;
 
 @protocol SharedCodeKotlinComparable, SharedCodeKotlinIterator;
 
@@ -304,11 +304,20 @@ __attribute__((swift_name("ButtonStyle")))
 @property (readonly) SharedCodeColor *backgroundColorInactive;
 @property (readonly) SharedCodeFont *font;
 @property (readonly) SharedCodeFontSize *fontSize;
+@property (readonly) SharedCodeCornerRadius *cornerRadius;
+@property (readonly) SharedCodeDimension *defaultHeight;
 @end;
 
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("ButtonStyle.CallToAction")))
 @interface SharedCodeButtonStyleCallToAction : SharedCodeButtonStyle
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("ButtonStyle.Destructive")))
+@interface SharedCodeButtonStyleDestructive : SharedCodeButtonStyle
 - (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
 + (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
 @end;
@@ -334,6 +343,91 @@ __attribute__((swift_name("EditableTextStyle.RequiredEditableText")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("EditableTextStyle.OptionalEditableText")))
 @interface SharedCodeEditableTextStyleOptionalEditableText : SharedCodeEditableTextStyle
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+@end;
+
+__attribute__((swift_name("Size")))
+@interface SharedCodeSize : KotlinBase
+@property (readonly) double value;
+@end;
+
+__attribute__((swift_name("CornerRadius")))
+@interface SharedCodeCornerRadius : SharedCodeSize
+@property (readonly) double radius;
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("CornerRadius.None")))
+@interface SharedCodeCornerRadiusNone : SharedCodeCornerRadius
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("CornerRadius.Small")))
+@interface SharedCodeCornerRadiusSmall : SharedCodeCornerRadius
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("CornerRadius.Medium")))
+@interface SharedCodeCornerRadiusMedium : SharedCodeCornerRadius
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("CornerRadius.Large")))
+@interface SharedCodeCornerRadiusLarge : SharedCodeCornerRadius
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+@end;
+
+__attribute__((swift_name("Dimension")))
+@interface SharedCodeDimension : SharedCodeSize
+@property (readonly) double points;
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("Dimension.ButtonHeight")))
+@interface SharedCodeDimensionButtonHeight : SharedCodeDimension
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+@end;
+
+__attribute__((swift_name("Margin")))
+@interface SharedCodeMargin : SharedCodeSize
+@property (readonly) double multiplier;
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("Margin.Companion")))
+@interface SharedCodeMarginCompanion : KotlinBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)companion __attribute__((swift_name("init()")));
+@property (readonly) double defaultMargin;
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("Margin.x1")))
+@interface SharedCodeMarginX1 : SharedCodeMargin
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("Margin.x1_5")))
+@interface SharedCodeMarginX1_5 : SharedCodeMargin
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("Margin.x2")))
+@interface SharedCodeMarginX2 : SharedCodeMargin
 - (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
 + (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
 @end;

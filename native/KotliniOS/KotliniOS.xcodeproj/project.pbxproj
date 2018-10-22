@@ -7,8 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9B12A30D2178A2ED008AF591 /* ButtonSubclasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B12A30C2178A2ED008AF591 /* ButtonSubclasses.swift */; };
+		9B12A3162178A951008AF591 /* squealer.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9B12A3122178A950008AF591 /* squealer.ttf */; };
+		9B12A31C2178BF03008AF591 /* Double+CGFloat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B12A31B2178BF03008AF591 /* Double+CGFloat.swift */; };
+		9B12A31E2178DD50008AF591 /* UIImage+SingleColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B12A31D2178DD50008AF591 /* UIImage+SingleColor.swift */; };
 		9B26184A2174CC9A00DADF6A /* SharedCode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BEBF1B321748C6C00C95493 /* SharedCode.framework */; };
 		9B26184B2174CC9A00DADF6A /* SharedCode.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9BEBF1B321748C6C00C95493 /* SharedCode.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9BDA8E932178A01900D4B0D7 /* LabelSubclasses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDA8E922178A01900D4B0D7 /* LabelSubclasses.swift */; };
 		9BEBF1A221748B1200C95493 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEBF1A121748B1200C95493 /* AppDelegate.swift */; };
 		9BEBF1A421748B1200C95493 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BEBF1A321748B1200C95493 /* ViewController.swift */; };
 		9BEBF1A721748B1200C95493 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BEBF1A521748B1200C95493 /* Main.storyboard */; };
@@ -32,6 +37,11 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9B12A30C2178A2ED008AF591 /* ButtonSubclasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonSubclasses.swift; sourceTree = "<group>"; };
+		9B12A3122178A950008AF591 /* squealer.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = squealer.ttf; path = ../../../../app/src/main/res/font/squealer.ttf; sourceTree = "<group>"; };
+		9B12A31B2178BF03008AF591 /* Double+CGFloat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+CGFloat.swift"; sourceTree = "<group>"; };
+		9B12A31D2178DD50008AF591 /* UIImage+SingleColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+SingleColor.swift"; sourceTree = "<group>"; };
+		9BDA8E922178A01900D4B0D7 /* LabelSubclasses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelSubclasses.swift; sourceTree = "<group>"; };
 		9BEBF19E21748B1200C95493 /* KotliniOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KotliniOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BEBF1A121748B1200C95493 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9BEBF1A321748B1200C95493 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -55,6 +65,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9B12A3102178A7E2008AF591 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				9B12A3122178A950008AF591 /* squealer.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		9BDA8E912178A00200D4B0D7 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9BDA8E922178A01900D4B0D7 /* LabelSubclasses.swift */,
+				9B12A30C2178A2ED008AF591 /* ButtonSubclasses.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		9BEBF19521748B1200C95493 = {
 			isa = PBXGroup;
 			children = (
@@ -75,9 +102,13 @@
 		9BEBF1A021748B1200C95493 /* KotliniOS */ = {
 			isa = PBXGroup;
 			children = (
+				9B12A3102178A7E2008AF591 /* Fonts */,
 				9BEBF1A121748B1200C95493 /* AppDelegate.swift */,
 				9BEBF1A321748B1200C95493 /* ViewController.swift */,
+				9B12A31B2178BF03008AF591 /* Double+CGFloat.swift */,
 				9BEBF1B82174BE0800C95493 /* UIStackView+Arranging.swift */,
+				9B12A31D2178DD50008AF591 /* UIImage+SingleColor.swift */,
+				9BDA8E912178A00200D4B0D7 /* Views */,
 				9BEBF1A521748B1200C95493 /* Main.storyboard */,
 				9BEBF1A821748B1400C95493 /* Assets.xcassets */,
 				9BEBF1AA21748B1400C95493 /* LaunchScreen.storyboard */,
@@ -149,6 +180,7 @@
 				9BEBF1AC21748B1400C95493 /* LaunchScreen.storyboard in Resources */,
 				9BEBF1A921748B1400C95493 /* Assets.xcassets in Resources */,
 				9BEBF1A721748B1200C95493 /* Main.storyboard in Resources */,
+				9B12A3162178A951008AF591 /* squealer.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,6 +212,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B12A30D2178A2ED008AF591 /* ButtonSubclasses.swift in Sources */,
+				9BDA8E932178A01900D4B0D7 /* LabelSubclasses.swift in Sources */,
+				9B12A31E2178DD50008AF591 /* UIImage+SingleColor.swift in Sources */,
+				9B12A31C2178BF03008AF591 /* Double+CGFloat.swift in Sources */,
 				9BEBF1A421748B1200C95493 /* ViewController.swift in Sources */,
 				9BEBF1A221748B1200C95493 /* AppDelegate.swift in Sources */,
 				9BEBF1B92174BE0800C95493 /* UIStackView+Arranging.swift in Sources */,

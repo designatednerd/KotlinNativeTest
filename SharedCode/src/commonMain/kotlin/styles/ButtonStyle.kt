@@ -6,24 +6,29 @@ import no.bakkenbaeck.mpp.mobile.FontSize
 
 sealed class ButtonStyle(
     val textColorActive: Color,
-    val textColorDisabled: Color,
+    val textColorDisabled: Color = Color.LightGray,
     val textColorInactive: Color,
     val backgroundColorActive: Color,
-    val backgroundColorDisabled: Color,
+    val backgroundColorDisabled: Color = Color.DarkGray,
     val backgroundColorInactive: Color,
-    val font: Font,
-    val fontSize: FontSize
+    val font: Font = Font.Bold,
+    val fontSize: FontSize = FontSize.TextPrimary,
+    val cornerRadius: CornerRadius = CornerRadius.Medium(),
+    val defaultHeight: Dimension = Dimension.ButtonHeight()
 ) {
 
     class CallToAction: ButtonStyle(
         textColorActive = Color.Blue,
-        textColorDisabled = Color.LightGray,
         textColorInactive = Color.Black,
-        backgroundColorActive = Color.Green,
-        backgroundColorDisabled = Color.DarkGray,
-        backgroundColorInactive = Color.Red,
-        font = Font.Bold,
-        fontSize = FontSize.TextPrimary     
+        backgroundColorActive = Color.Yellow,
+        backgroundColorInactive = Color.Green
+    )
+
+    class Destructive: ButtonStyle(
+        textColorInactive = Color.White,
+        textColorActive = Color.LightGray,
+        backgroundColorActive = Color.Yellow,
+        backgroundColorInactive = Color.Red
     )
 
 }

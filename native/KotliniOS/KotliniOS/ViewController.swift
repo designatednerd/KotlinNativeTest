@@ -17,13 +17,14 @@ class ViewController: UIViewController {
     @IBOutlet private var dayStackView: UIStackView!
     @IBOutlet private var startTimeStackView: UIStackView!
     @IBOutlet private var endTimeStackView: UIStackView!
+    
+    @IBOutlet private var enableButton: UIButton!
+    @IBOutlet private var disableButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.helloLabel.text = CommonKt.createApplicationScreenMessage()
-        let color = Color.gray.toUIColor()
-        self.helloLabel.textColor = color
         
         let hours = HoursOfOperation.Weekdays(fromHour: 8.0, toHour: 20.0)
         configureStacks(for: hours)
@@ -54,6 +55,16 @@ class ViewController: UIViewController {
             closingLabel.text = dayHours.endHourString
             endTimeStackView.addArrangedSubview(closingLabel)
         }
+    }
+    
+    @IBAction private func tapDisable() {
+        self.disableButton.isEnabled = false
+        self.enableButton.isEnabled = true
+    }
+    
+    @IBAction private func tappedEnable() {
+        self.disableButton.isEnabled = true
+        self.enableButton.isEnabled = false
     }
     
     func printForDay(_ day: DayOfWeek) {

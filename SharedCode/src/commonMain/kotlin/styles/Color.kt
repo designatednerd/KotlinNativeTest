@@ -10,7 +10,7 @@ enum class Color(val hexString: String) {
     Black("000000"),
     DarkGray("808080"),
     LightGray("C0C0C0"),
-    White("000000");
+    White("FFFFFF");
 
     val alphaComponent: Double
         get() = if (hexString.length != 8) {

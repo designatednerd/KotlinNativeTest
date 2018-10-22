@@ -18,31 +18,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ddr-Ax-bNv">
-                                <rect key="frame" x="20" y="50" width="335" height="115"/>
+                                <rect key="frame" x="20" y="50" width="335" height="230.5"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bKk-dN-5ez">
-                                        <rect key="frame" x="0.0" y="0.0" width="335" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bKk-dN-5ez" customClass="HeadlineLabel" customModule="KotliniOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="25"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="gS1-tK-h79">
-                                        <rect key="frame" x="0.0" y="28.5" width="335" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="33" width="335" height="21.5"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Day" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8YS-MX-kds">
-                                                <rect key="frame" x="0.0" y="0.0" width="109" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Day" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8YS-MX-kds" customClass="HeadlineSecondaryLabel" customModule="KotliniOS" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="109" height="21.5"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Open" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uft-r5-C6N">
-                                                <rect key="frame" x="113" y="0.0" width="109" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Open" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uft-r5-C6N" customClass="HeadlineSecondaryLabel" customModule="KotliniOS" customModuleProvider="target">
+                                                <rect key="frame" x="113" y="0.0" width="109" height="21.5"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Closed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xPd-1l-nPs">
-                                                <rect key="frame" x="226" y="0.0" width="109" height="20.5"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Closed" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xPd-1l-nPs" customClass="HeadlineSecondaryLabel" customModule="KotliniOS" customModuleProvider="target">
+                                                <rect key="frame" x="226" y="0.0" width="109" height="21.5"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -50,14 +50,14 @@
                                         </subviews>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wUf-c6-dSf">
-                                        <rect key="frame" x="0.0" y="57" width="335" height="1"/>
+                                        <rect key="frame" x="0.0" y="62.5" width="335" height="1"/>
                                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="1" id="YCv-rj-jnl"/>
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="KRC-F5-pJa">
-                                        <rect key="frame" x="0.0" y="66" width="335" height="20.5"/>
+                                        <rect key="frame" x="0.0" y="71.5" width="335" height="20.5"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Laj-uv-Hy3">
                                                 <rect key="frame" x="0.0" y="0.0" width="106.5" height="20.5"/>
@@ -94,12 +94,26 @@
                                             </stackView>
                                         </subviews>
                                     </stackView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BeW-P1-ulN">
-                                        <rect key="frame" x="0.0" y="94.5" width="335" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BeW-P1-ulN" customClass="TextCaptionLabel" customModule="KotliniOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="100" width="335" height="14.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rQx-9V-AMK" customClass="CallToActionButton" customModule="KotliniOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="122.5" width="335" height="50"/>
+                                        <state key="normal" title="Disable"/>
+                                        <connections>
+                                            <action selector="tapDisable" destination="BYZ-38-t0r" eventType="touchUpInside" id="hLb-IP-yig"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageWhenHighlighted="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B3h-QX-V22" customClass="DestructiveButton" customModule="KotliniOS" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="180.5" width="335" height="50"/>
+                                        <state key="normal" title="Enable"/>
+                                        <connections>
+                                            <action selector="tappedEnable" destination="BYZ-38-t0r" eventType="touchUpInside" id="15E-Pm-Z2C"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -114,6 +128,8 @@
                     </view>
                     <connections>
                         <outlet property="dayStackView" destination="Laj-uv-Hy3" id="1ZQ-kS-MYC"/>
+                        <outlet property="disableButton" destination="rQx-9V-AMK" id="hcg-Og-olP"/>
+                        <outlet property="enableButton" destination="B3h-QX-V22" id="fZN-81-cGG"/>
                         <outlet property="endTimeStackView" destination="L7N-Sv-shk" id="sVi-Q9-C1d"/>
                         <outlet property="helloLabel" destination="bKk-dN-5ez" id="VhI-i9-070"/>
                         <outlet property="isOpenLabel" destination="BeW-P1-ulN" id="0pi-t1-TzN"/>
