@@ -24,6 +24,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        HttpBinClient().runGet()
+        
         self.helloLabel.text = CommonKt.createApplicationScreenMessage()
         
         let hours = HoursOfOperation.Weekdays(fromHour: 8.0, toHour: 20.0)

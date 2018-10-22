@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 
-@class SharedCodeDayOfWeek, SharedCodeKotlinEnum, SharedCodeDayOfWeekCompanion, SharedCodeKotlinArray, SharedCodeHourType, SharedCodeHours, SharedCodeHoursOfOperation, SharedCodeHoursOfOperationAlways, SharedCodeHoursOfOperationWeekdays, SharedCodeHoursOfOperationWeekends, SharedCodeHoursOfOperationVariable, SharedCodeColor, SharedCodeFont, SharedCodeFontSize, SharedCodeButtonStyle, SharedCodeCornerRadius, SharedCodeDimension, SharedCodeButtonStyleCallToAction, SharedCodeButtonStyleDestructive, SharedCodeEditableTextStyle, SharedCodeEditableTextStyleRequiredEditableText, SharedCodeEditableTextStyleOptionalEditableText, SharedCodeSize, SharedCodeCornerRadiusNone, SharedCodeCornerRadiusSmall, SharedCodeCornerRadiusMedium, SharedCodeCornerRadiusLarge, SharedCodeDimensionButtonHeight, SharedCodeMargin, SharedCodeMarginCompanion, SharedCodeMarginX1, SharedCodeMarginX1_5, SharedCodeMarginX2, SharedCodeStaticTextStyle, SharedCodeStaticTextStyleHeadline, SharedCodeStaticTextStyleHeadlineSecondary, SharedCodeStaticTextStyleTextPrimary, SharedCodeStaticTextStyleTextSecondary, SharedCodeStaticTextStyleTextCaption, SharedCodeStaticTextStyleTextIconLabel, UIColor, UIFont;
+@class SharedCodeDayOfWeek, SharedCodeKotlinEnum, SharedCodeDayOfWeekCompanion, SharedCodeKotlinArray, SharedCodeHourType, SharedCodeHours, SharedCodeHoursOfOperation, SharedCodeHoursOfOperationAlways, SharedCodeHoursOfOperationWeekdays, SharedCodeHoursOfOperationWeekends, SharedCodeHoursOfOperationVariable, SharedCodeHttpBinClient, SharedCodeNetworkClient, SharedCodeKotlinUnit, SharedCodeNetworkResult, SharedCodeRequestMethod, SharedCodeRequestMethodGet, SharedCodeRequestMethodPut, SharedCodeRequestMethodPost, SharedCodeRequestMethodDelete, SharedCodeRequestMethodPatch, SharedCodeNetworkResultSuccess, SharedCodeNetworkResultError, SharedCodeColor, SharedCodeFont, SharedCodeFontSize, SharedCodeButtonStyle, SharedCodeCornerRadius, SharedCodeDimension, SharedCodeButtonStyleCallToAction, SharedCodeButtonStyleDestructive, SharedCodeEditableTextStyle, SharedCodeEditableTextStyleRequiredEditableText, SharedCodeEditableTextStyleOptionalEditableText, SharedCodeSize, SharedCodeCornerRadiusNone, SharedCodeCornerRadiusSmall, SharedCodeCornerRadiusMedium, SharedCodeCornerRadiusLarge, SharedCodeDimensionButtonHeight, SharedCodeMargin, SharedCodeMarginCompanion, SharedCodeMarginX1, SharedCodeMarginX1_5, SharedCodeMarginX2, SharedCodeStaticTextStyle, SharedCodeStaticTextStyleHeadline, SharedCodeStaticTextStyleHeadlineSecondary, SharedCodeStaticTextStyleTextPrimary, SharedCodeStaticTextStyleTextSecondary, SharedCodeStaticTextStyleTextCaption, SharedCodeStaticTextStyleTextIconLabel, UIColor, UIFont;
 
 @protocol SharedCodeKotlinComparable, SharedCodeKotlinIterator;
 
@@ -240,6 +240,81 @@ __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("HoursOfOperation.Variable")))
 @interface SharedCodeHoursOfOperationVariable : SharedCodeHoursOfOperation
 - (instancetype)initWithHours:(NSArray<SharedCodeHours *> *)hours __attribute__((swift_name("init(hours:)"))) __attribute__((objc_designated_initializer));
+@end;
+
+__attribute__((swift_name("NetworkClient")))
+@interface SharedCodeNetworkClient : KotlinBase
+- (instancetype)initWithRootURLString:(NSString *)rootURLString __attribute__((swift_name("init(rootURLString:)"))) __attribute__((objc_designated_initializer));
+- (void)getFromPath:(NSString *)fromPath transformationFunction:(id _Nullable (^)(NSString *))transformationFunction callback:(SharedCodeKotlinUnit *(^)(SharedCodeNetworkResult *))callback __attribute__((swift_name("get(fromPath:transformationFunction:callback:)")));
+- (void)performMethod:(SharedCodeRequestMethod *)method urlString:(NSString *)urlString transformationFunction:(id _Nullable (^)(NSString *))transformationFunction callback:(SharedCodeKotlinUnit *(^)(SharedCodeNetworkResult *))callback __attribute__((swift_name("perform(method:urlString:transformationFunction:callback:)")));
+@property (readonly) NSString *rootURLString;
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("HttpBinClient")))
+@interface SharedCodeHttpBinClient : SharedCodeNetworkClient
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+- (instancetype)initWithRootURLString:(NSString *)rootURLString __attribute__((swift_name("init(rootURLString:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
+- (void)runGet __attribute__((swift_name("runGet()")));
+@end;
+
+__attribute__((swift_name("RequestMethod")))
+@interface SharedCodeRequestMethod : KotlinBase
+@property (readonly) NSString *stringValue;
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("RequestMethod.Get")))
+@interface SharedCodeRequestMethodGet : SharedCodeRequestMethod
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("RequestMethod.Put")))
+@interface SharedCodeRequestMethodPut : SharedCodeRequestMethod
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("RequestMethod.Post")))
+@interface SharedCodeRequestMethodPost : SharedCodeRequestMethod
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("RequestMethod.Delete")))
+@interface SharedCodeRequestMethodDelete : SharedCodeRequestMethod
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("RequestMethod.Patch")))
+@interface SharedCodeRequestMethodPatch : SharedCodeRequestMethod
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+@end;
+
+__attribute__((swift_name("NetworkResult")))
+@interface SharedCodeNetworkResult : KotlinBase
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("NetworkResult.Success")))
+@interface SharedCodeNetworkResultSuccess : SharedCodeNetworkResult
+- (instancetype)initWithItem:(id _Nullable)item __attribute__((swift_name("init(item:)"))) __attribute__((objc_designated_initializer));
+@property (readonly) id _Nullable item;
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("NetworkResult.Error")))
+@interface SharedCodeNetworkResultError : SharedCodeNetworkResult
+- (instancetype)initWithMessage:(NSString *)message __attribute__((swift_name("init(message:)"))) __attribute__((objc_designated_initializer));
+@property (readonly) NSString *message;
 @end;
 
 __attribute__((objc_subclassing_restricted))
@@ -499,6 +574,12 @@ __attribute__((swift_name("FloatExtensionsKt")))
 @end;
 
 __attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("NetworkImplementationKt")))
+@interface SharedCodeNetworkImplementationKt : KotlinBase
++ (void)sendToNetworkMethod:(SharedCodeRequestMethod *)method urlString:(NSString *)urlString callback:(SharedCodeKotlinUnit *(^)(SharedCodeNetworkResult *))callback __attribute__((swift_name("sendToNetwork(method:urlString:callback:)")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("ActualKt")))
 @interface SharedCodeActualKt : KotlinBase
 + (NSString *)platformName __attribute__((swift_name("platformName()")));
@@ -520,6 +601,14 @@ __attribute__((swift_name("KotlinArray")))
 - (id<SharedCodeKotlinIterator>)iterator __attribute__((swift_name("iterator()")));
 - (void)setIndex:(int32_t)index value:(id _Nullable)value __attribute__((swift_name("set(index:value:)")));
 @property (readonly) int32_t size;
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("KotlinUnit")))
+@interface SharedCodeKotlinUnit : KotlinBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)unit __attribute__((swift_name("init()")));
 @end;
 
 __attribute__((swift_name("KotlinIterator")))
