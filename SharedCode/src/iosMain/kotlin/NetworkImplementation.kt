@@ -25,9 +25,7 @@ actual fun sendToNetwork(method: RequestMethod,
                 result = NetworkResult.Error("No data received")
             } else {
                 val decoded = NSString.create(data = data, encoding = NSUTF8StringEncoding)
-
-                // Warning: Awful hack
-                val kotlinString = decoded?.stringByAppendingString("")
+                val kotlinString = decoded?.toKotlinString()
                 result = if (kotlinString == null) {
                      NetworkResult.Error("Could not decode string!")
                 } else {
@@ -47,5 +45,7 @@ NOTES:
  - NSURLSession causes an error because it fires off to another thread and can't be called synchronously
     "Uncaught Kotlin exception: kotlin.IllegalStateException: Illegal transfer state"
  - Even trying to work around this using dispatch semaphores doesn't work.
+
+- ^ok had this with NSURLConnection too until I called `freeze` on the url request. Gonna take another stab.
 
  */
