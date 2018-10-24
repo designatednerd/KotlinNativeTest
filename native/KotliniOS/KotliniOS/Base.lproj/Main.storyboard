@@ -127,12 +127,15 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="dayHeaderLabel" destination="8YS-MX-kds" id="vQv-Pi-oip"/>
                         <outlet property="dayStackView" destination="Laj-uv-Hy3" id="1ZQ-kS-MYC"/>
                         <outlet property="disableButton" destination="rQx-9V-AMK" id="hcg-Og-olP"/>
                         <outlet property="enableButton" destination="B3h-QX-V22" id="fZN-81-cGG"/>
                         <outlet property="endTimeStackView" destination="L7N-Sv-shk" id="sVi-Q9-C1d"/>
+                        <outlet property="enddHeaderLabel" destination="xPd-1l-nPs" id="Vig-cr-bpC"/>
                         <outlet property="helloLabel" destination="bKk-dN-5ez" id="VhI-i9-070"/>
                         <outlet property="isOpenLabel" destination="BeW-P1-ulN" id="0pi-t1-TzN"/>
+                        <outlet property="startHeaderLabel" destination="uft-r5-C6N" id="oza-GL-Crw"/>
                         <outlet property="startTimeStackView" destination="03N-7A-KEv" id="a9f-2W-9RA"/>
                     </connections>
                 </viewController>

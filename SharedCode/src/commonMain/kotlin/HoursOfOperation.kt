@@ -4,6 +4,20 @@ sealed class HoursOfOperation(
     val hours: List<Hours>
 ) {
 
+    companion object {
+        fun dayHeaderTitle(): String {
+            return "Day"
+        }
+
+        fun openingHeaderTitle(): String {
+            return "Open at"
+        }
+
+        fun closingHeaderTitle(): String {
+            return "Closed at"
+        }
+    }
+
     class Always: HoursOfOperation(DayOfWeek.values().map { day ->
         Hours(day, 0.0f, 24.0f)
     }.toList())

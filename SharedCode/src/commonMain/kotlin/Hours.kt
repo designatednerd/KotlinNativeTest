@@ -9,7 +9,6 @@ data class Hours(
     val isAllDay: Boolean
         get() = (fromHour == 0.0f) && (toHour == 24.0f)
 
-
     val dayString: String
         get() = forDay.name
 
@@ -26,7 +25,6 @@ data class Hours(
         } else {
             toHour.toHourString()
         }
-
 
     fun hoursString(): String {
         return if (isAllDay) {

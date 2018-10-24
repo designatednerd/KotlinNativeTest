@@ -5,6 +5,8 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:paddingLeft="@dimen/large_margin"
+        android:paddingRight="@dimen/large_margin"
         tools:context=".MainActivity">
 
     <TextView
@@ -13,37 +15,85 @@
             android:layout_height="wrap_content"
             tools:text="Hello World!"
             android:textAlignment="center"
-            app:layout_constraintBottom_toTopOf="@id/hours_text"
+            app:layout_constraintBottom_toTopOf="@id/hours_layout"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-    <TextView
-            android:id="@+id/hours_text"
-            android:layout_width="wrap_content"
+
+    <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:text="Monday 8am-9pm"
+            android:id="@+id/hours_layout"
             app:layout_constraintTop_toBottomOf="@id/main_text"
-            app:layout_constraintBottom_toTopOf="@id/is_open_text"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent" />
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/is_open_text"
+            android:layout_marginTop="@dimen/default_margin"
+            android:layout_marginBottom="@dimen/default_margin"
+            android:orientation="vertical"
+    >
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:id="@+id/header_layout" android:layout_marginBottom="0dp" android:paddingBottom="0dp"
+        >
+            <TextView
+                    android:id="@+id/day_header"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="0.33"
+                    tools:text="Day" android:textAlignment="center"/>
+            <TextView
+                    android:id="@+id/opening_header"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="0.33"
+                    tools:text="Open" android:textAlignment="center"/>
+            <TextView
+                    android:id="@+id/closing_header"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_weight="0.33"
+                    tools:text="Closed" android:textAlignment="center"/>
+        </LinearLayout>
+        <View
+                android:layout_height="1dp"
+                android:layout_width="match_parent"
+                android:background="@android:color/black"/>
+    </LinearLayout>
+
     <TextView
             android:id="@+id/is_open_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/hours_text"
-            app:layout_constraintBottom_toTopOf="@id/button"
+            app:layout_constraintTop_toBottomOf="@id/hours_layout"
+            app:layout_constraintBottom_toTopOf="@id/enable_button"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             tools:text="Is Open: YES"/>
     <com.google.android.material.button.MaterialButton
-            android:id="@+id/button"
-            android:layout_width="wrap_content"
+            android:id="@+id/disable_button"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/is_open_text"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/enable_button"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
-            tools:text="A BUTTON"
-    />
+            android:text="@string/disable"
+            tools:text="A BUTTON" />
+    <com.google.android.material.button.MaterialButton
+            android:id="@+id/enable_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/disable_button"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:text="@string/enable"
+            android:enabled="false"
+            tools:text="A BUTTON" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

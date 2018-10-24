@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 
-@class SharedCodeDayOfWeek, SharedCodeKotlinEnum, SharedCodeDayOfWeekCompanion, SharedCodeKotlinArray, SharedCodeHourType, SharedCodeHours, SharedCodeHoursOfOperation, SharedCodeHoursOfOperationAlways, SharedCodeHoursOfOperationWeekdays, SharedCodeHoursOfOperationWeekends, SharedCodeHoursOfOperationVariable, SharedCodeHttpBinClient, SharedCodeNetworkClient, SharedCodeKotlinUnit, SharedCodeNetworkResult, SharedCodeRequestMethod, SharedCodeRequestMethodGet, SharedCodeRequestMethodPut, SharedCodeRequestMethodPost, SharedCodeRequestMethodDelete, SharedCodeRequestMethodPatch, SharedCodeNetworkResultSuccess, SharedCodeNetworkResultError, SharedCodeColor, SharedCodeFont, SharedCodeFontSize, SharedCodeButtonStyle, SharedCodeCornerRadius, SharedCodeDimension, SharedCodeButtonStyleCallToAction, SharedCodeButtonStyleDestructive, SharedCodeEditableTextStyle, SharedCodeEditableTextStyleRequiredEditableText, SharedCodeEditableTextStyleOptionalEditableText, SharedCodeSize, SharedCodeCornerRadiusNone, SharedCodeCornerRadiusSmall, SharedCodeCornerRadiusMedium, SharedCodeCornerRadiusLarge, SharedCodeDimensionButtonHeight, SharedCodeMargin, SharedCodeMarginCompanion, SharedCodeMarginX1, SharedCodeMarginX1_5, SharedCodeMarginX2, SharedCodeStaticTextStyle, SharedCodeStaticTextStyleHeadline, SharedCodeStaticTextStyleHeadlineSecondary, SharedCodeStaticTextStyleTextPrimary, SharedCodeStaticTextStyleTextSecondary, SharedCodeStaticTextStyleTextCaption, SharedCodeStaticTextStyleTextIconLabel, UIColor, UIFont;
+@class SharedCodeDayOfWeek, SharedCodeKotlinEnum, SharedCodeDayOfWeekCompanion, SharedCodeKotlinArray, SharedCodeHourType, SharedCodeHours, SharedCodeHoursOfOperation, SharedCodeHoursOfOperationCompanion, SharedCodeHoursOfOperationAlways, SharedCodeHoursOfOperationWeekdays, SharedCodeHoursOfOperationWeekends, SharedCodeHoursOfOperationVariable, SharedCodeHttpBinClient, SharedCodeNetworkClient, SharedCodeKotlinUnit, SharedCodeNetworkResult, SharedCodeRequestMethod, SharedCodeRequestMethodGet, SharedCodeRequestMethodPut, SharedCodeRequestMethodPost, SharedCodeRequestMethodDelete, SharedCodeRequestMethodPatch, SharedCodeNetworkResultSuccess, SharedCodeNetworkResultError, SharedCodeColor, SharedCodeFont, SharedCodeFontSize, SharedCodeButtonStyle, SharedCodeCornerRadius, SharedCodeDimension, SharedCodeButtonStyleCallToAction, SharedCodeButtonStyleDestructive, SharedCodeEditableTextStyle, SharedCodeEditableTextStyleRequiredEditableText, SharedCodeEditableTextStyleOptionalEditableText, SharedCodeSize, SharedCodeCornerRadiusNone, SharedCodeCornerRadiusSmall, SharedCodeCornerRadiusMedium, SharedCodeCornerRadiusLarge, SharedCodeDimensionButtonHeight, SharedCodeMargin, SharedCodeMarginCompanion, SharedCodeMarginX1, SharedCodeMarginX1_5, SharedCodeMarginX2, SharedCodeStaticTextStyle, SharedCodeStaticTextStyleHeadline, SharedCodeStaticTextStyleHeadlineSecondary, SharedCodeStaticTextStyleTextPrimary, SharedCodeStaticTextStyleTextSecondary, SharedCodeStaticTextStyleTextCaption, SharedCodeStaticTextStyleTextIconLabel, UIColor, UIFont, NSString;
 
 @protocol SharedCodeKotlinComparable, SharedCodeKotlinIterator;
 
@@ -215,6 +215,17 @@ __attribute__((swift_name("HoursOfOperation")))
 - (BOOL)isOpenOnDay:(SharedCodeDayOfWeek *)onDay atHour:(float)atHour __attribute__((swift_name("isOpen(onDay:atHour:)")));
 - (NSString *)isOpenTextOnDay:(SharedCodeDayOfWeek *)onDay atHour:(float)atHour __attribute__((swift_name("isOpenText(onDay:atHour:)")));
 @property (readonly) NSArray<SharedCodeHours *> *hours;
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("HoursOfOperation.Companion")))
+@interface SharedCodeHoursOfOperationCompanion : KotlinBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)companion __attribute__((swift_name("init()")));
+- (NSString *)dayHeaderTitle __attribute__((swift_name("dayHeaderTitle()")));
+- (NSString *)openingHeaderTitle __attribute__((swift_name("openingHeaderTitle()")));
+- (NSString *)closingHeaderTitle __attribute__((swift_name("closingHeaderTitle()")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
@@ -589,6 +600,12 @@ __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("CommonKt")))
 @interface SharedCodeCommonKt : KotlinBase
 + (NSString *)createApplicationScreenMessage __attribute__((swift_name("createApplicationScreenMessage()")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("NSString_KotlinKt")))
+@interface SharedCodeNSString_KotlinKt : KotlinBase
++ (NSString *)toKotlinString:(NSString *)receiver __attribute__((swift_name("toKotlinString(_:)")));
 @end;
 
 __attribute__((objc_subclassing_restricted))

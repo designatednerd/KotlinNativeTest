@@ -14,6 +14,10 @@ class ViewController: UIViewController {
     @IBOutlet private var helloLabel: UILabel!
     @IBOutlet private var isOpenLabel: UILabel!
     
+    @IBOutlet private var dayHeaderLabel: UILabel!
+    @IBOutlet private var startHeaderLabel: UILabel!
+    @IBOutlet private var enddHeaderLabel: UILabel!
+    
     @IBOutlet private var dayStackView: UIStackView!
     @IBOutlet private var startTimeStackView: UIStackView!
     @IBOutlet private var endTimeStackView: UIStackView!
@@ -30,6 +34,11 @@ class ViewController: UIViewController {
         
         let hours = HoursOfOperation.Weekdays(fromHour: 8.0, toHour: 20.0)
         configureStacks(for: hours)
+        
+        let companion = HoursOfOperation.Companion()
+        dayHeaderLabel.text = companion.dayHeaderTitle()
+        startHeaderLabel.text = companion.openingHeaderTitle()
+        enddHeaderLabel.text = companion.closingHeaderTitle()
         
         self.isOpenLabel.text = hours.isOpenText(onDay: .saturday, atHour: 23.5)
     }
