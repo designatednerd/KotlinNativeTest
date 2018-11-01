@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.button.MaterialButton
 import no.bakkenbaeck.mpp.mobile.DayOfWeek
 import no.bakkenbaeck.mpp.mobile.HoursOfOperation
+import no.bakkenbaeck.mpp.mobile.HttpBinClient
 import no.bakkenbaeck.mpp.mobile.createApplicationScreenMessage
 import no.bakkenbaeck.mpp.mobile.styles.ButtonStyle
 import no.bakkenbaeck.mpp.mobile.styles.StaticTextStyle
@@ -15,6 +16,9 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        HttpBinClient().runGet()
+
         setContentView(R.layout.activity_main)
 
         findViewById<TextView>(R.id.main_text).apply {

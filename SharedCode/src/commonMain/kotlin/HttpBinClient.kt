@@ -3,15 +3,12 @@ package no.bakkenbaeck.mpp.mobile
 class HttpBinClient: NetworkClient("https://httpbin.org") {
 
     fun runGet() {
-        get(
-            fromPath = "get",
-            transformationFunction = { string ->
-                string
-            },
+        executeRequest(
+            path = "get",
             callback = { result ->
                 when (result) {
-                    is NetworkResult.Error -> println("Error! : ${result.message}")
-                    is NetworkResult.Success -> println("Success! Got: \n${result.item}")
+                    is NetworkResult.Error<String> -> println("Error! : ${result.message}")
+                    is NetworkResult.Success<String> -> println("Success! Got: \n${result.item}")
                 }
             }
         )

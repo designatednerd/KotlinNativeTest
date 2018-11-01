@@ -1,6 +1,11 @@
 package no.bakkenbaeck.mpp.mobile
 
+import io.ktor.client.HttpClient
+import io.ktor.client.request.get
+import io.ktor.client.request.url
 import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 sealed class RequestMethod(val stringValue: String) {
     class Get: RequestMethod("GET")
@@ -20,39 +25,37 @@ internal expect val ApplicationDispatcher: CoroutineDispatcher
 
 open class NetworkClient(val rootURLString: String) {
 
+    private val ktorClient = HttpClient()
+
     private fun fullURLStringForPath(path: String): String {
         return "$rootURLString/$path"
     }
 
-//    fun <T> get(
-//        fromPath: String,
-//        transformationFunction: (String) -> T,
-//        callback: (NetworkResult<T>) -> Unit) {
-//        perform(
-//            RequestMethod.Get(),
-//            fullURLStringForPath(fromPath),
-//            transformationFunction,
-//            callback
-//        )
-//    }
-//
-//    fun <T> perform(method: RequestMethod,
-//                    urlString: String,
-//                    transformationFunction: (String) -> T,
-//                    callback: (NetworkResult<T>) -> Unit) {
-//
-//        sendToNetwork(
-//            method,
-//            urlString
-//        ) { networkResult ->
-//            when (networkResult) {
-//                is NetworkResult.Error -> callback(NetworkResult.Error(networkResult.message))
-//                is NetworkResult.Success -> {
-//                    val transformed = transformationFunction(networkResult.item)
-//                    callback(NetworkResult.Success(transformed))
-//                }
-//            }
-//        }
-//    }
+    fun executeRequest(
+        method: RequestMethod = RequestMethod.Get(),
+        path: String,
+        callback: (NetworkResult<String>) -> Unit
+    ) {
+        GlobalScope.launch(ApplicationDispatcher) {
+            try {
+                val result = when (method) {
+                    is RequestMethod.Get -> get(path)
+                    else -> "NOT IMPLEMENTED"
+                }
+
+                callback(NetworkResult.Success(result))
+            } catch (exception: Exception) {
+                callback(NetworkResult.Error(exception.message ?: "¯\\_(ツ)_/¯"))
+            }
+        }
+    }
+
+    suspend fun get(
+        path: String): String {
+        val fullPath = fullURLStringForPath(path)
+        return ktorClient.get {
+            url(fullPath)
+        }
+    }
 
 }

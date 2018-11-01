@@ -1,6 +1,6 @@
 #import <Foundation/Foundation.h>
 
-@class SharedCodeDayOfWeek, SharedCodeKotlinEnum, SharedCodeDayOfWeekCompanion, SharedCodeKotlinArray, SharedCodeHourType, SharedCodeHours, SharedCodeHoursOfOperation, SharedCodeHoursOfOperationCompanion, SharedCodeHoursOfOperationAlways, SharedCodeHoursOfOperationWeekdays, SharedCodeHoursOfOperationWeekends, SharedCodeHoursOfOperationVariable, SharedCodeHttpBinClient, SharedCodeNetworkClient, SharedCodeKotlinUnit, SharedCodeNetworkResult, SharedCodeRequestMethod, SharedCodeRequestMethodGet, SharedCodeRequestMethodPut, SharedCodeRequestMethodPost, SharedCodeRequestMethodDelete, SharedCodeRequestMethodPatch, SharedCodeNetworkResultSuccess, SharedCodeNetworkResultError, SharedCodeColor, SharedCodeFont, SharedCodeFontSize, SharedCodeButtonStyle, SharedCodeCornerRadius, SharedCodeDimension, SharedCodeButtonStyleCallToAction, SharedCodeButtonStyleDestructive, SharedCodeEditableTextStyle, SharedCodeEditableTextStyleRequiredEditableText, SharedCodeEditableTextStyleOptionalEditableText, SharedCodeSize, SharedCodeCornerRadiusNone, SharedCodeCornerRadiusSmall, SharedCodeCornerRadiusMedium, SharedCodeCornerRadiusLarge, SharedCodeDimensionButtonHeight, SharedCodeMargin, SharedCodeMarginCompanion, SharedCodeMarginX1, SharedCodeMarginX1_5, SharedCodeMarginX2, SharedCodeStaticTextStyle, SharedCodeStaticTextStyleHeadline, SharedCodeStaticTextStyleHeadlineSecondary, SharedCodeStaticTextStyleTextPrimary, SharedCodeStaticTextStyleTextSecondary, SharedCodeStaticTextStyleTextCaption, SharedCodeStaticTextStyleTextIconLabel, UIColor, UIFont, NSString;
+@class SharedCodeDayOfWeek, SharedCodeKotlinEnum, SharedCodeDayOfWeekCompanion, SharedCodeKotlinArray, SharedCodeHourType, SharedCodeHours, SharedCodeHoursOfOperation, SharedCodeHoursOfOperationCompanion, SharedCodeHoursOfOperationAlways, SharedCodeHoursOfOperationWeekdays, SharedCodeHoursOfOperationWeekends, SharedCodeHoursOfOperationVariable, SharedCodeHttpBinClient, SharedCodeNetworkClient, SharedCodeRequestMethod, SharedCodeKotlinUnit, SharedCodeNetworkResult, SharedCodeRequestMethodGet, SharedCodeRequestMethodPut, SharedCodeRequestMethodPost, SharedCodeRequestMethodDelete, SharedCodeRequestMethodPatch, SharedCodeNetworkResultSuccess, SharedCodeNetworkResultError, SharedCodeColor, SharedCodeFont, SharedCodeFontSize, SharedCodeButtonStyle, SharedCodeCornerRadius, SharedCodeDimension, SharedCodeButtonStyleCallToAction, SharedCodeButtonStyleDestructive, SharedCodeEditableTextStyle, SharedCodeEditableTextStyleRequiredEditableText, SharedCodeEditableTextStyleOptionalEditableText, SharedCodeSize, SharedCodeCornerRadiusNone, SharedCodeCornerRadiusSmall, SharedCodeCornerRadiusMedium, SharedCodeCornerRadiusLarge, SharedCodeDimensionButtonHeight, SharedCodeMargin, SharedCodeMarginCompanion, SharedCodeMarginX1, SharedCodeMarginX1_5, SharedCodeMarginX2, SharedCodeStaticTextStyle, SharedCodeStaticTextStyleHeadline, SharedCodeStaticTextStyleHeadlineSecondary, SharedCodeStaticTextStyleTextPrimary, SharedCodeStaticTextStyleTextSecondary, SharedCodeStaticTextStyleTextCaption, SharedCodeStaticTextStyleTextIconLabel, UIColor, UIFont, NSString;
 
 @protocol SharedCodeKotlinComparable, SharedCodeKotlinIterator;
 
@@ -256,8 +256,7 @@ __attribute__((swift_name("HoursOfOperation.Variable")))
 __attribute__((swift_name("NetworkClient")))
 @interface SharedCodeNetworkClient : KotlinBase
 - (instancetype)initWithRootURLString:(NSString *)rootURLString __attribute__((swift_name("init(rootURLString:)"))) __attribute__((objc_designated_initializer));
-- (void)getFromPath:(NSString *)fromPath transformationFunction:(id _Nullable (^)(NSString *))transformationFunction callback:(SharedCodeKotlinUnit *(^)(SharedCodeNetworkResult *))callback __attribute__((swift_name("get(fromPath:transformationFunction:callback:)")));
-- (void)performMethod:(SharedCodeRequestMethod *)method urlString:(NSString *)urlString transformationFunction:(id _Nullable (^)(NSString *))transformationFunction callback:(SharedCodeKotlinUnit *(^)(SharedCodeNetworkResult *))callback __attribute__((swift_name("perform(method:urlString:transformationFunction:callback:)")));
+- (void)executeRequestMethod:(SharedCodeRequestMethod *)method path:(NSString *)path callback:(SharedCodeKotlinUnit *(^)(SharedCodeNetworkResult *))callback __attribute__((swift_name("executeRequest(method:path:callback:)")));
 @property (readonly) NSString *rootURLString;
 @end;
 
@@ -582,12 +581,6 @@ __attribute__((swift_name("FloatExtensionsKt")))
 + (NSString *)toHourString:(float)receiver __attribute__((swift_name("toHourString(_:)")));
 + (SharedCodeHourType *)hours:(float)receiver __attribute__((swift_name("hours(_:)")));
 + (NSString *)minutes:(float)receiver __attribute__((swift_name("minutes(_:)")));
-@end;
-
-__attribute__((objc_subclassing_restricted))
-__attribute__((swift_name("NetworkImplementationKt")))
-@interface SharedCodeNetworkImplementationKt : KotlinBase
-+ (void)sendToNetworkMethod:(SharedCodeRequestMethod *)method urlString:(NSString *)urlString callback:(SharedCodeKotlinUnit *(^)(SharedCodeNetworkResult *))callback __attribute__((swift_name("sendToNetwork(method:urlString:callback:)")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
