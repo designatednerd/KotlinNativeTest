@@ -1,7 +1,6 @@
 package no.bakkenbaeck.mpp.mobile
 
-actual fun sendToNetwork(method: RequestMethod,
-                         urlString: String,
-                         callback: (NetworkResult<String>) -> Unit) {
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
 
-}
+internal actual val ApplicationDispatcher: CoroutineDispatcher = Dispatchers.Default

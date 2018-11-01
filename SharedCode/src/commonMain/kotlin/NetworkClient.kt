@@ -1,5 +1,7 @@
 package no.bakkenbaeck.mpp.mobile
 
+import kotlinx.coroutines.CoroutineDispatcher
+
 sealed class RequestMethod(val stringValue: String) {
     class Get: RequestMethod("GET")
     class Put: RequestMethod("PUT")
@@ -9,13 +11,12 @@ sealed class RequestMethod(val stringValue: String) {
 }
 
 sealed class NetworkResult<T> {
-    class Success<T>(val item: T): NetworkResult<T>()
-    class Error<T>(val message: String): NetworkResult<T>()
+    class Success<T>(val item: T) : NetworkResult<T>()
+    class Error<T>(val message: String) : NetworkResult<T>()
 }
 
-expect fun sendToNetwork(method: RequestMethod,
-                         urlString: String,
-                         callback: (NetworkResult<String>) -> Unit)
+internal expect val ApplicationDispatcher: CoroutineDispatcher
+
 
 open class NetworkClient(val rootURLString: String) {
 
@@ -23,35 +24,35 @@ open class NetworkClient(val rootURLString: String) {
         return "$rootURLString/$path"
     }
 
-    fun <T> get(
-        fromPath: String,
-        transformationFunction: (String) -> T,
-        callback: (NetworkResult<T>) -> Unit) {
-        perform(
-            RequestMethod.Get(),
-            fullURLStringForPath(fromPath),
-            transformationFunction,
-            callback
-        )
-    }
-
-    fun <T> perform(method: RequestMethod,
-                    urlString: String,
-                    transformationFunction: (String) -> T,
-                    callback: (NetworkResult<T>) -> Unit) {
-
-        sendToNetwork(
-            method,
-            urlString
-        ) { networkResult ->
-            when (networkResult) {
-                is NetworkResult.Error -> callback(NetworkResult.Error(networkResult.message))
-                is NetworkResult.Success -> {
-                    val transformed = transformationFunction(networkResult.item)
-                    callback(NetworkResult.Success(transformed))
-                }
-            }
-        }
-    }
+//    fun <T> get(
+//        fromPath: String,
+//        transformationFunction: (String) -> T,
+//        callback: (NetworkResult<T>) -> Unit) {
+//        perform(
+//            RequestMethod.Get(),
+//            fullURLStringForPath(fromPath),
+//            transformationFunction,
+//            callback
+//        )
+//    }
+//
+//    fun <T> perform(method: RequestMethod,
+//                    urlString: String,
+//                    transformationFunction: (String) -> T,
+//                    callback: (NetworkResult<T>) -> Unit) {
+//
+//        sendToNetwork(
+//            method,
+//            urlString
+//        ) { networkResult ->
+//            when (networkResult) {
+//                is NetworkResult.Error -> callback(NetworkResult.Error(networkResult.message))
+//                is NetworkResult.Success -> {
+//                    val transformed = transformationFunction(networkResult.item)
+//                    callback(NetworkResult.Success(transformed))
+//                }
+//            }
+//        }
+//    }
 
 }

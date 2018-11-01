@@ -1,51 +1,21 @@
 package no.bakkenbaeck.mpp.mobile
 
-import platform.Foundation.*
-import kotlin.native.concurrent.TransferMode
-import kotlin.native.concurrent.Worker
-import kotlin.native.concurrent.freeze
+import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Runnable
+import platform.darwin.dispatch_async
+import platform.darwin.dispatch_get_main_queue
+import platform.darwin.dispatch_queue_t
+import kotlin.coroutines.CoroutineContext
 
-actual fun sendToNetwork(method: RequestMethod,
-                         urlString: String,
-                         callback: (NetworkResult<String>) -> Unit) {
+internal actual val ApplicationDispatcher: CoroutineDispatcher = NSQueueDispatcher(dispatch_get_main_queue())
 
+internal class NSQueueDispatcher(
+    private val dispatchQueue: dispatch_queue_t
+): CoroutineDispatcher() {
 
-    val url = NSURL(string = urlString)
-    val mutableUrlRequest = NSMutableURLRequest(url)
-    mutableUrlRequest.setHTTPMethod(method.stringValue)
-
-    val worker = Worker.start()
-    worker.execute(TransferMode.SAFE, producer = {
-            mutableUrlRequest.freeze()
-        },
-        job = { request: NSURLRequest ->
-            val result: NetworkResult<String>
-            val data = NSURLConnection.sendSynchronousRequest(request, null, null)
-            if (data == null) {
-                result = NetworkResult.Error("No data received")
-            } else {
-                val decoded = NSString.create(data = data, encoding = NSUTF8StringEncoding)
-                val kotlinString = decoded?.toKotlinString()
-                result = if (kotlinString == null) {
-                     NetworkResult.Error("Could not decode string!")
-                } else {
-                    NetworkResult.Success(kotlinString)
-                }
-            }
-
-            result
-    }).consume { result ->
-        callback(result)
+    override fun dispatch(context: CoroutineContext, block: Runnable) {
+        dispatch_async(dispatchQueue) {
+            block.run()
+        }
     }
 }
-
-/*
-NOTES:
-
- - NSURLSession causes an error because it fires off to another thread and can't be called synchronously
-    "Uncaught Kotlin exception: kotlin.IllegalStateException: Illegal transfer state"
- - Even trying to work around this using dispatch semaphores doesn't work.
-
-- ^ok had this with NSURLConnection too until I called `freeze` on the url request. Gonna take another stab.
-
- */
