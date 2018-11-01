@@ -18,6 +18,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         HttpBinClient().runGet()
+        HttpBinClient().runPost("HELLO ANDROID")
 
         setContentView(R.layout.activity_main)
 

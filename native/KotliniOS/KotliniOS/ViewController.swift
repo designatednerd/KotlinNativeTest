@@ -29,6 +29,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         HttpBinClient().runGet()
+        HttpBinClient().runPost(body: "HELLO iOS!")
         
         self.helloLabel.text = CommonKt.createApplicationScreenMessage()
         

@@ -267,6 +267,7 @@ __attribute__((swift_name("HttpBinClient")))
 + (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
 - (instancetype)initWithRootURLString:(NSString *)rootURLString __attribute__((swift_name("init(rootURLString:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
 - (void)runGet __attribute__((swift_name("runGet()")));
+- (void)runPostBody:(NSString *)body __attribute__((swift_name("runPost(body:)")));
 @end;
 
 __attribute__((swift_name("RequestMethod")))
@@ -291,8 +292,8 @@ __attribute__((swift_name("RequestMethod.Put")))
 __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("RequestMethod.Post")))
 @interface SharedCodeRequestMethodPost : SharedCodeRequestMethod
-- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
-+ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+- (instancetype)initWithBody:(NSString *)body __attribute__((swift_name("init(body:)"))) __attribute__((objc_designated_initializer));
+@property (readonly) NSString *body;
 @end;
 
 __attribute__((objc_subclassing_restricted))
