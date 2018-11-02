@@ -5,7 +5,11 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.button.MaterialButton
-import no.bakkenbaeck.mpp.mobile.*
+import no.bakkenbaeck.mpp.mobile.DayOfWeek
+import no.bakkenbaeck.mpp.mobile.HoursOfOperation
+import no.bakkenbaeck.mpp.mobile.HttpBinClient
+import no.bakkenbaeck.mpp.mobile.createApplicationScreenMessage
+import no.bakkenbaeck.mpp.mobile.localization.Localized
 import no.bakkenbaeck.mpp.mobile.styles.ButtonStyle
 import no.bakkenbaeck.mpp.mobile.styles.StaticTextStyle
 

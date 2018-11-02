@@ -1,5 +1,7 @@
 package no.bakkenbaeck.mpp.mobile
 
+import no.bakkenbaeck.mpp.mobile.localization.Localized
+
 data class Hours(
     val forDay: DayOfWeek,
     val fromHour: Float,
@@ -10,11 +12,11 @@ data class Hours(
         get() = (fromHour == 0.0f) && (toHour == 24.0f)
 
     val dayString: String
-        get() = forDay.name
+        get() = forDay.localizedName
 
     val startHourString: String
         get() = if (isAllDay) {
-            "24 Hours"
+            Localized.always
         } else {
             fromHour.toHourString()
         }
@@ -28,9 +30,9 @@ data class Hours(
 
     fun hoursString(): String {
         return if (isAllDay) {
-            "$startHourString"
+            startHourString
         } else {
-            "From $startHourString to $endHourString"
+            Localized.hours(startHourString, endHourString)
         }
     }
 

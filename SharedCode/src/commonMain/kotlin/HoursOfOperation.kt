@@ -1,5 +1,7 @@
 package no.bakkenbaeck.mpp.mobile
 
+import no.bakkenbaeck.mpp.mobile.localization.Localized
+
 sealed class HoursOfOperation(
     val hours: List<Hours>
 ) {
@@ -49,12 +51,12 @@ sealed class HoursOfOperation(
 
     fun isOpenText(onDay: DayOfWeek, atHour: Float): String {
         val time = atHour.toHourString()
-        val prefix = "Is open ${onDay.name} at $time?: "
+        val prefix = Localized.isOpen(onDay.localizedName, time)
 
         return if (isOpen(onDay, atHour)) {
-            "$prefix YES"
+            "$prefix ${Localized.yes}"
         } else {
-            "$prefix NO"
+            "$prefix ${Localized.no}"
         }
     }
 
