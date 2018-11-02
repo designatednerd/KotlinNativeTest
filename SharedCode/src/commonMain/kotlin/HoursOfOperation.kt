@@ -6,15 +6,15 @@ sealed class HoursOfOperation(
 
     companion object {
         fun dayHeaderTitle(): String {
-            return "Day"
+            return Localized.dayHeaderTitle
         }
 
         fun openingHeaderTitle(): String {
-            return "Open at"
+            return Localized.openingHeaderTitle
         }
 
         fun closingHeaderTitle(): String {
-            return "Closed at"
+            return Localized.closingHeaderTitle
         }
     }
 

@@ -5,10 +5,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.button.MaterialButton
-import no.bakkenbaeck.mpp.mobile.DayOfWeek
-import no.bakkenbaeck.mpp.mobile.HoursOfOperation
-import no.bakkenbaeck.mpp.mobile.HttpBinClient
-import no.bakkenbaeck.mpp.mobile.createApplicationScreenMessage
+import no.bakkenbaeck.mpp.mobile.*
 import no.bakkenbaeck.mpp.mobile.styles.ButtonStyle
 import no.bakkenbaeck.mpp.mobile.styles.StaticTextStyle
 
@@ -16,6 +13,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        println("Current value: ${Localized.helloWorld}")
 
         HttpBinClient().runGet()
         HttpBinClient().runPost("HELLO ANDROID")
