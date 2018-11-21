@@ -1,8 +1,8 @@
 #import <Foundation/Foundation.h>
 
-@class SharedCodeDayOfWeek, SharedCodeKotlinEnum, SharedCodeDayOfWeekCompanion, SharedCodeKotlinArray, SharedCodeHourType, SharedCodeHours, SharedCodeHoursOfOperation, SharedCodeHoursOfOperationCompanion, SharedCodeHoursOfOperationAlways, SharedCodeHoursOfOperationWeekdays, SharedCodeHoursOfOperationWeekends, SharedCodeHoursOfOperationVariable, SharedCodeHttpBinClient, SharedCodeNetworkClient, SharedCodeRequestMethod, SharedCodeKotlinUnit, SharedCodeNetworkResult, SharedCodeRequestMethodGet, SharedCodeRequestMethodPut, SharedCodeRequestMethodPost, SharedCodeRequestMethodDelete, SharedCodeRequestMethodPatch, SharedCodeNetworkResultSuccess, SharedCodeNetworkResultError, SharedCodeColor, SharedCodeFont, SharedCodeFontSize, SharedCodeButtonStyle, SharedCodeCornerRadius, SharedCodeDimension, SharedCodeButtonStyleCallToAction, SharedCodeButtonStyleDestructive, SharedCodeEditableTextStyle, SharedCodeEditableTextStyleRequiredEditableText, SharedCodeEditableTextStyleOptionalEditableText, SharedCodeSize, SharedCodeCornerRadiusNone, SharedCodeCornerRadiusSmall, SharedCodeCornerRadiusMedium, SharedCodeCornerRadiusLarge, SharedCodeDimensionButtonHeight, SharedCodeMargin, SharedCodeMarginCompanion, SharedCodeMarginX1, SharedCodeMarginX1_5, SharedCodeMarginX2, SharedCodeStaticTextStyle, SharedCodeStaticTextStyleHeadline, SharedCodeStaticTextStyleHeadlineSecondary, SharedCodeStaticTextStyleTextPrimary, SharedCodeStaticTextStyleTextSecondary, SharedCodeStaticTextStyleTextCaption, SharedCodeStaticTextStyleTextIconLabel, UIColor, UIFont, NSString;
+@class SharedCodeDayOfWeek, SharedCodeKotlinEnum, SharedCodeDayOfWeekCompanion, SharedCodeKotlinArray, SharedCodeHourType, SharedCodeHours, SharedCodeHoursOfOperation, SharedCodeHoursOfOperationCompanion, SharedCodeHoursOfOperationAlways, SharedCodeHoursOfOperationWeekdays, SharedCodeHoursOfOperationWeekends, SharedCodeHoursOfOperationVariable, SharedCodeHttpBinClient, SharedCodeNetworkClient, SharedCodeRequestMethod, SharedCodeKotlinUnit, SharedCodeNetworkResult, SharedCodeRequestMethodGet, SharedCodeRequestMethodPut, SharedCodeRequestMethodPost, SharedCodeRequestMethodDelete, SharedCodeRequestMethodPatch, SharedCodeNetworkResultSuccess, SharedCodeNetworkResultError, SharedCodeColor, SharedCodeFont, SharedCodeFontSize, SharedCodeLocalized, SharedCodeLocalizedString, SharedCodeStringStorage, SharedCodeSupportedLanguage, SharedCodeSupportedLanguageCompanion, SharedCodeEnglishAll, SharedCodeEnglish, SharedCodeEnglishAmerican, SharedCodeEnglishBritish, SharedCodeSpanish, SharedCodeButtonStyle, SharedCodeCornerRadius, SharedCodeDimension, SharedCodeButtonStyleCallToAction, SharedCodeButtonStyleDestructive, SharedCodeEditableTextStyle, SharedCodeEditableTextStyleRequiredEditableText, SharedCodeEditableTextStyleOptionalEditableText, SharedCodeSize, SharedCodeCornerRadiusNone, SharedCodeCornerRadiusSmall, SharedCodeCornerRadiusMedium, SharedCodeCornerRadiusLarge, SharedCodeDimensionButtonHeight, SharedCodeMargin, SharedCodeMarginCompanion, SharedCodeMarginX1, SharedCodeMarginX1_5, SharedCodeMarginX2, SharedCodeStaticTextStyle, SharedCodeStaticTextStyleHeadline, SharedCodeStaticTextStyleHeadlineSecondary, SharedCodeStaticTextStyleTextPrimary, SharedCodeStaticTextStyleTextSecondary, SharedCodeStaticTextStyleTextCaption, SharedCodeStaticTextStyleTextIconLabel, UIColor, UIFont, NSString;
 
-@protocol SharedCodeKotlinComparable, SharedCodeKotlinIterator;
+@protocol SharedCodeKotlinComparable, SharedCodeLanguage, SharedCodeKotlinIterator;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -169,6 +169,7 @@ __attribute__((swift_name("DayOfWeek")))
 @property (class, readonly) SharedCodeDayOfWeek *sunday;
 - (instancetype)initWithName:(NSString *)name ordinal:(int32_t)ordinal __attribute__((swift_name("init(name:ordinal:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
 - (int32_t)compareToOther:(SharedCodeDayOfWeek *)other __attribute__((swift_name("compareTo(other:)")));
+@property (readonly) NSString *localizedName;
 @end;
 
 __attribute__((objc_subclassing_restricted))
@@ -378,6 +379,119 @@ __attribute__((swift_name("FontSize")))
 - (instancetype)initWithName:(NSString *)name ordinal:(int32_t)ordinal __attribute__((swift_name("init(name:ordinal:)"))) __attribute__((objc_designated_initializer)) __attribute__((unavailable));
 - (int32_t)compareToOther:(SharedCodeFontSize *)other __attribute__((swift_name("compareTo(other:)")));
 @property (readonly) double unscaledPixels;
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("Localized")))
+@interface SharedCodeLocalized : KotlinBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)localized __attribute__((swift_name("init()")));
+- (NSString *)isOpenOnDay:(NSString *)onDay atTime:(NSString *)atTime __attribute__((swift_name("isOpen(onDay:atTime:)")));
+- (NSString *)hoursFromHour:(NSString *)fromHour toHour:(NSString *)toHour __attribute__((swift_name("hours(fromHour:toHour:)")));
+- (NSString *)kotlinRocksOnPlatform:(NSString *)onPlatform __attribute__((swift_name("kotlinRocks(onPlatform:)")));
+@property (readonly) NSString *helloWorld;
+@property (readonly) NSString *dayHeaderTitle;
+@property (readonly) NSString *openingHeaderTitle;
+@property (readonly) NSString *closingHeaderTitle;
+@property (readonly) NSString *always;
+@property (readonly) NSString *monday;
+@property (readonly) NSString *tuesday;
+@property (readonly) NSString *wednesday;
+@property (readonly) NSString *thursday;
+@property (readonly) NSString *friday;
+@property (readonly) NSString *saturday;
+@property (readonly) NSString *sunday;
+@property (readonly) NSString *yes;
+@property (readonly) NSString *no;
+@end;
+
+__attribute__((swift_name("Language")))
+@protocol SharedCodeLanguage
+@required
+@property (readonly) NSString *code;
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("LocalizedString")))
+@interface SharedCodeLocalizedString : KotlinBase
+- (instancetype)initWithValues:(NSDictionary<id<SharedCodeLanguage>, NSString *> *)values __attribute__((swift_name("init(values:)"))) __attribute__((objc_designated_initializer));
+- (NSString * _Nullable)valueForLanguageCodeCode:(NSString *)code __attribute__((swift_name("valueForLanguageCode(code:)")));
+- (SharedCodeLocalizedString *)doCopyValues:(NSDictionary<id<SharedCodeLanguage>, NSString *> *)values __attribute__((swift_name("doCopy(values:)")));
+@property (readonly) NSString *defaultValue;
+@property (readonly) NSString * _Nullable currentLanguageValue;
+@property (readonly) NSString *value;
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("StringStorage")))
+@interface SharedCodeStringStorage : KotlinBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)stringStorage __attribute__((swift_name("init()")));
+@property (readonly) SharedCodeLocalizedString *helloWorld;
+@property (readonly) SharedCodeLocalizedString *dayHeaderTitle;
+@property (readonly) SharedCodeLocalizedString *openingHeaderTitle;
+@property (readonly) SharedCodeLocalizedString *closingHeaderTitle;
+@property (readonly) SharedCodeLocalizedString *monday;
+@property (readonly) SharedCodeLocalizedString *tuesday;
+@property (readonly) SharedCodeLocalizedString *wednesday;
+@property (readonly) SharedCodeLocalizedString *thursday;
+@property (readonly) SharedCodeLocalizedString *friday;
+@property (readonly) SharedCodeLocalizedString *saturday;
+@property (readonly) SharedCodeLocalizedString *sunday;
+@property (readonly) SharedCodeLocalizedString *isOpenFormat;
+@property (readonly) SharedCodeLocalizedString *yes;
+@property (readonly) SharedCodeLocalizedString *no;
+@property (readonly) SharedCodeLocalizedString *always;
+@property (readonly) SharedCodeLocalizedString *hoursFormat;
+@property (readonly) SharedCodeLocalizedString *kotlinRocksFormat;
+@end;
+
+__attribute__((swift_name("SupportedLanguage")))
+@interface SharedCodeSupportedLanguage : KotlinBase <SharedCodeLanguage>
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("SupportedLanguage.Companion")))
+@interface SharedCodeSupportedLanguageCompanion : KotlinBase
++ (instancetype)alloc __attribute__((unavailable));
++ (instancetype)allocWithZone:(struct _NSZone *)zone __attribute__((unavailable));
++ (instancetype)companion __attribute__((swift_name("init()")));
+@property (readonly) SharedCodeEnglishAll *defaultLanguage;
+@end;
+
+__attribute__((swift_name("English")))
+@interface SharedCodeEnglish : SharedCodeSupportedLanguage
+@property (readonly) NSString * _Nullable country;
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("English.All")))
+@interface SharedCodeEnglishAll : SharedCodeEnglish
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("English.American")))
+@interface SharedCodeEnglishAmerican : SharedCodeEnglish
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("English.British")))
+@interface SharedCodeEnglishBritish : SharedCodeEnglish
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("Spanish")))
+@interface SharedCodeSpanish : SharedCodeSupportedLanguage
+- (instancetype)init __attribute__((swift_name("init()"))) __attribute__((objc_designated_initializer));
++ (instancetype)new __attribute__((availability(swift, unavailable, message="use object initializers instead")));
 @end;
 
 __attribute__((swift_name("ButtonStyle")))
@@ -600,6 +714,12 @@ __attribute__((objc_subclassing_restricted))
 __attribute__((swift_name("NSString_KotlinKt")))
 @interface SharedCodeNSString_KotlinKt : KotlinBase
 + (NSString *)toKotlinString:(NSString *)receiver __attribute__((swift_name("toKotlinString(_:)")));
+@end;
+
+__attribute__((objc_subclassing_restricted))
+__attribute__((swift_name("LanguageCodeKt")))
+@interface SharedCodeLanguageCodeKt : KotlinBase
++ (NSString *)currentLanguageCode __attribute__((swift_name("currentLanguageCode()")));
 @end;
 
 __attribute__((objc_subclassing_restricted))
